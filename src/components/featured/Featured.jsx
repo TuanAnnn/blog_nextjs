@@ -14,7 +14,7 @@ const Featured = () => {
           <Image src="/p1.jpeg" alt='' fill/>
         </div>
         <div className={styles.textContainer}>
-          <h1 className={styles.postTitle}>Here is Title</h1>
+          <h1 className={styles.postTitle}>The First Blog</h1>
           <b className={styles.postDesc}>Đây là bài viết đầu tiên trên blog của tôi</b>
           <button className={styles.button}>Read more</button>
         </div>
