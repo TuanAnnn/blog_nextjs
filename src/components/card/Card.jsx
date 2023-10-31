@@ -3,9 +3,10 @@ import styles from "./card.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = () => {
+const Card = ({key ,item}) => {
+  //console.log("item",item);
   return (
-    <div className={styles.container}>
+    <div className={styles.container} key={key}>
       <div className={styles.imageContainer}>
         <Image src="/p1.jpeg" alt="" fill />
       </div>
@@ -15,7 +16,7 @@ const Card = () => {
           <span className={styles.category}>CULTURE</span>
         </div>
         <Link href="/">
-          <h1>DAY LA POST THU 2</h1>
+          <h1>{item?.title}</h1>
         </Link>
         <p>
           Mỗi đoạn văn thường bắt đầu bằng một câu chủ đề hoặc một ý chính, từ
