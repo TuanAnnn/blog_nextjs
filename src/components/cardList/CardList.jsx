@@ -4,10 +4,10 @@ import Pagination from "../pagination/Pagination";
 import Image from "next/image";
 import Card from "../card/Card";
 
-const getData = async ({page}) => {
+const getData = async ({ page, cat }) => {
   //console.log(page)
   const res = await fetch(
-    `http://localhost:3000/api/posts?page=${page}`,
+    `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }
@@ -20,9 +20,9 @@ const getData = async ({page}) => {
   return res.json();
 };
 
-const CardList = async ( {page} ) => {
-  //console.log("page:  ",page);
-  const  {count,posts}  = await getData({page});
+const CardList = async ({ page, cat }) => {
+  // console.log("cat:  ",cat);
+  const { count, posts } = await getData({ page, cat });
   //console.log("posts",posts);
 
   const POST_PER_PAGE = 2;
@@ -38,7 +38,7 @@ const CardList = async ( {page} ) => {
           <Card item={item} key={item._id} />
         ))}
       </div>
-      <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext}/>
+      <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />
     </div>
   );
 };

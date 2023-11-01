@@ -8,7 +8,7 @@ const Featured = () => {
       <h1 className={styles.title}>
         <b className={styles.bold}>Hey, An dev is here!</b>
          Discover my stories and creative ideas
-      </h1>
+      </h1> 
       <div className={styles.post}>
         <div className={styles.imgContainer}>
           <Image src="/p1.jpeg" alt='' fill/>

@@ -4,25 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Card = ({key ,item}) => {
-  //console.log("item",item);
+  console.log("item",item);
   return (
     <div className={styles.container} key={key}>
       <div className={styles.imageContainer}>
-        <Image src="/p1.jpeg" alt="" fill />
+        {item.img && <Image src={item.img} alt="" fill />}
       </div>
       <div className={styles.textContainer}>
         <div className={styles.detail}>
-          <span className={styles.date}>11.02.2023 - </span>
-          <span className={styles.category}>CULTURE</span>
+          <span className={styles.date}>{item?.createdAt?.substring(0,10)} - </span>
+          <span className={styles.category}>{item.catSlug}</span>
         </div>
-        <Link href="/">
+        <Link href={`/posts/${item?.title}`}>
           <h1>{item?.title}</h1>
         </Link>
         <p>
-          Mỗi đoạn văn thường bắt đầu bằng một câu chủ đề hoặc một ý chính, từ
-          đó phát triển và mở rộng ý kiến, thông tin hoặc quan điểm của tác giả.
-          Các câu trong đoạn văn liên kết với nhau thông qua những từ nối, ví dụ
-          như để tạo sự mạch lạc và logic
+          {item.desc.substring(0)}
         </p>
         <Link href="/">Read More</Link>
       </div>
